@@ -6,25 +6,51 @@ class MatterYandexFix
   ]
 
   var _counter
+  var _interval
+  var _md
 
   def init()
     self._counter = 0
+    self._interval = nil
+    self._md = global.member('matter_device')
+  end
+
+  def _detect_interval()
+    if self._md == nil
+      return
+    end
+
+    for s: self._md.message_handler.im.subs_shop.subs
+      if s.path_list == nil
+        continue
+      end
+
+      for p: s.path_list
+        if self.SENSOR_CLUSTERS.find(p.cluster) != nil
+          if s.min_interval > 0
+            self._interval = s.min_interval - 1
+            return
+          end
+        end
+      end
+    end
   end
 
   def every_second()
+    if self._interval == nil
+      self._detect_interval()
+      return
+    end
+
     self._counter += 1
-    if self._counter < 55
+
+    if self._counter < self._interval
       return
     end
 
     self._counter = 0
 
-    var md = global.member('matter_device')
-    if md == nil
-      return
-    end
-
-    for s: md.message_handler.im.subs_shop.subs
+    for s: self._md.message_handler.im.subs_shop.subs
       if s.path_list == nil
         continue
       end
