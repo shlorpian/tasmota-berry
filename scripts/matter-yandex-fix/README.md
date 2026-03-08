@@ -2,7 +2,7 @@
 
 ### Problem
 
-When using [Tasmota](https://tasmota.github.io/) with Matter protocol and [Yandex Smart Home](https://yandex.ru/alice/smart-home), temperature and humidity sensors stop updating after the initial reading. Illuminance sensors work fine.
+When using [Tasmota](https://tasmota.github.io/) with Matter protocol and [Yandex Smart Home](https://yandex.ru/alice/smart-home), temperature, humidity and atmospheric pressure sensors stop updating after the initial reading. Illuminance sensors work fine.
 
 ### Installation
 
@@ -20,13 +20,13 @@ tasmota.add_driver(MatterYandexFix())
 
 - Tasmota with Matter support (tested on 15.2.0+)
 - Matter device commissioned to Yandex Smart Home
-- Temperature and/or humidity sensors configured as Matter endpoints
+- Temperature and/or humidity and/or atmospheric pressure sensors configured as Matter endpoints
 
 ---
 
 ### Проблема
 
-При использовании [Tasmota](https://tasmota.github.io/) с протоколом Matter и [Яндекс Умным домом](https://yandex.ru/alice/smart-home) датчики температуры и влажности перестают обновляться после первоначального чтения. Датчики освещённости при этом работают нормально.
+При использовании [Tasmota](https://tasmota.github.io/) с протоколом Matter и [Яндекс Умным домом](https://yandex.ru/alice/smart-home) датчики температуры, влажности и атмосферного давления перестают обновляться после первоначального чтения. Датчики освещённости при этом работают нормально.
 
 ### Установка
 
@@ -44,4 +44,4 @@ tasmota.add_driver(MatterYandexFix())
 
 - Tasmota с поддержкой Matter (проверено на 15.2.0+)
 - Устройство добавлено в Яндекс Умный дом через Matter
-- Датчики температуры и/или влажности настроены как Matter-эндпоинты
+- Датчики температуры и/или влажности и/или атмосферного давления настроены как Matter-эндпоинты
