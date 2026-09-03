@@ -27,7 +27,7 @@ class MatterYandexFix
 
       for p: s.path_list
         if self.SENSOR_CLUSTERS.find(p.cluster) != nil
-          if s.min_interval > 0
+          if s.min_interval > 10
             self._interval = s.min_interval - 1
             return
           end
