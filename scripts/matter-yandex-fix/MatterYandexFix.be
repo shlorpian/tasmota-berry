@@ -2,6 +2,7 @@ class MatterYandexFix
   # Matter cluster IDs for sensor types that need periodic update forcing
   static SENSOR_CLUSTERS = [
     0x0402,   # Temperature Measurement
+    0x0403,   # Atmospheric Pressure Measurement
     0x0405,   # Relative Humidity Measurement
   ]
 
